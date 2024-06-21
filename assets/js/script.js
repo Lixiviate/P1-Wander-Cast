@@ -24,7 +24,7 @@ weatherUpdate = (city) =>{
        } else {
         var data = JSON.parse(xhr.response);
         cityName.innerHTML = data.name;
-        temp.innerHTML = `${Math.round(data.main.temp - 459.67)}°F`;
+        temp.innerHTML = `${Math.round(data.main.temp - 32)}°F`;
         main.innerHTML = data.weather[0].main;
         discription.innerHTML = data.weather[0].discription;
        }
