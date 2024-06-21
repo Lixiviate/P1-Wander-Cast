@@ -6,6 +6,7 @@ async function initMap() {
   map = new Map(document.getElementById("map"), {
     center: { lat: 0, lng: 0 },
     zoom: 2,
+    MapId: '8e1d737c8c3da317',
   });
 }
 
