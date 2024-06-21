@@ -12,69 +12,73 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
-
-
-
-<section class="hero is-primary mb-4">
-  <div class="hero-body">
-    <p class="title">WanderCast</p>
-    <p class="has-text-primary-95" class="subtitle">Your Ultimate Food and Weather Planner</p>
-  </div>
-</section>
-
-
-<div class="columns"> 
-  <div class="column is-one-third ml-4 mr-1"> 
-    <div class="field">
-      <label class="label">Search</label>
-      <div class="control">
-        <input class="input" type="text" placeholder="Text input">
-    </div>
-  <p class="help"> Search by City</p>
-</div>  
-</div>
-
-
-<div class="column is-three-fifths">
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-96x96">
-              <img class="is-rounded" src="https://bulma.io/assets/images/placeholders/128x128.png" />
-        </figure>
+    <section class="hero is-primary mb-4">
+      <div class="hero-body">
+        <p class="title">WanderCast</p>
+        <p class="has-text-primary-95" class="subtitle">
+          Your Ultimate Travel and Weather Planner
+        </p>
+      </div>
+    </section>
+    <div class="columns">
+      <div class="column is-one-third ml-4 mr-1">
+        <div class="field">
+          <label class="label">Search</label>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Enter city name"
+              id="search-input"
+            />
           </div>
-          <div class="my-6" class="media-content">
-            <p class="title is-4">Weather</p>
-            <p class="subtitle is-6">@OpenWeatherApi</p>
+          <p class="help">Search by City</p>
+          <button class="button is-primary mt-2" onclick="searchCity()">
+            Search
+          </button>
+        </div>
+      </div>
+      <div class="column is-three-fifths">
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-96x96">
+                  <img
+                    class="is-rounded"
+                    src="https://bulma.io/assets/images/placeholders/128x128.png"
+                  />
+                </figure>
+              </div>
+              <div class="my-6" class="media-content">
+                <p class="title is-4">Weather</p>
+                <p class="subtitle is-6">@OpenWeatherApi</p>
+              </div>
+            </div>
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              nec iaculis mauris.
+              <br />
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">Add to Favorites</a>
+                <a href="#" class="card-footer-item">Remove from Favorites</a>
+              </footer>
+            </div>
           </div>
         </div>
-
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-      iaculis mauris. 
-      
-      <br />
-       <footer class="card-footer">
-        <a href="#" class="card-footer-item">Add to Favorites</a>
-        
-        <a href="#" class="card-footer-item">Remove from Favorites</a>
-      </footer>
+      </div>
     </div>
-  </div>
-</div>
- 
-<div class="container is-fluid">
-  <div class="notification is-primary">
-    This container is <strong>fluid</strong>: it will have a 32px gap on either
-    side, on any viewport size.
-  </div>
-</div>
-
-    </section>
+    <div class="container is-fluid">
+      <div class="notification is-primary">
+        This container is <strong>fluid</strong>: it will have a 32px gap on
+        either side, on any viewport size.
+      </div>
+    </div>
     <div id="map"></div>
     <script src="./assets/js/script.js"></script>
-    <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&loading=async&callback=initMap"></script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&callback=initMap"
+    ></script>
   </body>
 </html>
