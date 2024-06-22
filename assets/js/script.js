@@ -17,7 +17,7 @@ function searchCity() {
   geocoder.geocode({ address: city }, function(results, status) {
     if (status === 'OK') {
       map.setCenter(results[0].geometry.location);
-      map.setZoom(12);
+      map.setZoom(15);
       new google.maps.Marker({
         map: map,
         position: results[0].geometry.location
