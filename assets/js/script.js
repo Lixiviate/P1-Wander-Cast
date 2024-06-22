@@ -15,9 +15,12 @@ async function initMap() {
     types: ['(cities)']
   });
 
+
+  
 }
 
-function searchCity() {
+function searchCity(event) {
+  event.preventDefault();
   const city = document.getElementById('search-input').value;
   const geocoder = new google.maps.Geocoder();
 

@@ -25,19 +25,27 @@
         <div class="field">
           <label class="label">Search</label>
           <div class="control">
+            <div class="field has-addons">
+              <div class="control is-expanded">
+            <form onsubmit="return searchCity(event)">
             <input
               id="search-input"
               class="input"
               type="text"
               placeholder="Enter city name"
+              required
             />
           </div>
-          <p class="help">Search by City</p>
-          <button class="button is-primary mt-2" onclick="searchCity()">
+          <div class="control">
+          <button type='submit' class="button is-primary">
             Search
           </button>
         </div>
+        </div>
+        </form>
+        </div>
       </div>
+    </div>
       <div class="column is-three-fifths">
         <div class="card">
           <div class="card-content">
