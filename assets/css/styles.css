@@ -1,8 +1,15 @@
 
   #map {
-    height: 50%;
-    width: 50%;
-    margin: 50px;
+    height: 450px;
+    width: 100%;
+  }
+
+  #map-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid hsl(217, 71%, 53%);
+    padding: 10px;
   }
   
   html, body {
