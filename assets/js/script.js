@@ -56,10 +56,9 @@ function searchRestaurants(location) {
 }
 
 function createMarker(place) {
-  const placeLoc = place.geometry.location;
   const marker = new google.maps.Marker({
     map: map,
-    position: placeLoc
+    position: place.geometry.location,
   });
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -82,7 +81,7 @@ function fetchPlaceDetails(placeId, marker) {
         <strong style="color: black;">${placeName}</strong><br>
         <span style="color: black;">${placeVicinity}</span><br>
         <img src="${photoUrl}" alt="${placeName}" style="width:100px;height:100px;"><br>
-        <button class="button is-primary is-small" onclick="saveToFavorites('${placeName.replace(/'/g, "\\'")}', '${placeVicinity.replace(/'/g, "\\'")}')">Add to Favorites</button>
+        <button class="button is-primary is-small" onclick="saveToFavorites('${placeName}', '${placeVicinity}')">Add to Favorites</button>
       </div>`;
       infoWindow.setContent(content);
       infoWindow.open(map, marker);
