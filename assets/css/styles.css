@@ -17,9 +17,3 @@ body {
   border: 5px solid hsl(217, 71%, 53%);
   padding: 10px;
 }
-
-/* Override styles for the InfoWindow */
-.gm-style-iw,
-.poi-info-window {
-  color: black !important;
-}
