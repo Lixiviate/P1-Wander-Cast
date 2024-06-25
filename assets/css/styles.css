@@ -30,3 +30,13 @@ html,body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+#image{
+  position: absolute;
+  top:10px;
+  right:10px;
+  background:#c6ccc1;
+  height: 100px;
+  border-radius: 50%;
+  border: 0.2px dotted black;
+    box-shadow: 0 0 20px 2px #bfd485 ;}

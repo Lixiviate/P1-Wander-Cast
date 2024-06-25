@@ -35,16 +35,23 @@
         <div class="column is-one-third ml-4 mr-1">
           <div class="field">
             <div class="control">
-              <form onsubmit="return searchCity(event)">
+              <form onsubmit="searchCity(event)" >
                 <div class="field has-addons">
                   <div class="control is-expanded">
                     <input
                       id="search-input"
-                      class="input"
+                     class="input"
                       type="text"
                       placeholder="Enter city name"
                       required
+                      class="input"
+                      type="text"
+                      placeholder="Enter city name"
+                      required 
+                     
                     />
+
+             
                   </div>
                   <div class="control">
                     <button type="submit" class="button is-link">
@@ -73,11 +80,7 @@
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-96x96">
-                    <img
-                      class="is-rounded"
-                      src="https://bulma.io/assets/images/placeholders/128x128.png"
-                      alt="placeholder"
-                    />
+                    <img img id="image" src="https://openweathermap.org/img/wn/02n@2x.png">
                   </figure>
                 </div>
                 <div class="my-6 media-content">
@@ -86,8 +89,14 @@
                 </div>
               </div>
               <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris.
+             
+
+<div id="weatherContainer">
+  <h2 id="cityName"></h2>
+  <p id="temp"></p>
+  <p id="main"></p>
+  <p id="description"></p>
+</div>
                 <br />
                 <footer class="card-footer">
                   <a href="#" class="card-footer-item">Add to Favorites</a>
