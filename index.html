@@ -5,29 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Wander Cast: Your Travel Companion</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    
   </head>
 
   <body>
     <section class="hero is-medium mb-4 hero-background">
       <div class="hero-body">
         <p class="title is-1">WanderCast</p>
-        <p class="has-text-primary-95 subtitle">
-          Your Ultimate Food and Weather Planner
-        </p>
+        <p class="has-text-primary-95 subtitle">Your Ultimate Food and Weather Planner</p>
       </div>
     </section>
     <section>
@@ -35,23 +23,10 @@
         <div class="column is-one-third ml-4 mr-1">
           <div class="field">
             <div class="control">
-              <form onsubmit="searchCity(event)" >
+              <form id="input">
                 <div class="field has-addons">
                   <div class="control is-expanded">
-                    <input
-                      id="search-input"
-                     class="input"
-                      type="text"
-                      placeholder="Enter city name"
-                      required
-                      class="input"
-                      type="text"
-                      placeholder="Enter city name"
-                      required 
-                     
-                    />
-
-             
+                    <input id="search-input" class="input" type="text" placeholder="Enter city name" required />
                   </div>
                   <div class="control">
                     <button type="submit" class="button is-link">
@@ -80,7 +55,7 @@
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-96x96">
-                    <img img id="image" src="https://openweathermap.org/img/wn/02n@2x.png">
+                    <img id="image" src="https://openweathermap.org/img/wn/02n@2x.png" />
                   </figure>
                 </div>
                 <div class="my-6 media-content">
@@ -89,14 +64,12 @@
                 </div>
               </div>
               <div class="content">
-             
-
-<div id="weatherContainer">
-  <h2 id="cityName"></h2>
-  <p id="temp"></p>
-  <p id="main"></p>
-  <p id="description"></p>
-</div>
+                <div id="weatherContainer">
+                  <h2 id="cityName"></h2>
+                  <p id="temp"></p>
+                  <p id="main"></p>
+                  <p id="description"></p>
+                </div>
                 <br />
                 <footer class="card-footer">
                   <a href="#" class="card-footer-item">Add to Favorites</a>
@@ -135,9 +108,6 @@
     </section>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/gmap.js"></script>
-    <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&libraries=places&callback=initMap"
-    ></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&libraries=places&callback=initMap"></script>
   </body>
 </html>

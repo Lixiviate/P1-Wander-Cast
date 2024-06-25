@@ -1,5 +1,6 @@
 // Selecting search input from DOM
 const searchInput = document.querySelector('#search-input');
+
 // Declare variables
 let autoComplete;
 let map;
@@ -17,7 +18,7 @@ async function initMap() {
   map = new Map(document.querySelector("#map"), {
     center: { lat: 0, lng: 0 },
     zoom: 2,
-    MapId: '8e1d737c8c3da317',
+    mapId: '8e1d737c8c3da317',
   });
 
   // autocomplete for search input, restricted to cities only
@@ -42,8 +43,6 @@ function searchCity(event) {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
-
-  return false; // Unknown if needed??
 }
 
 // Search for restaurants near a given location and create markers using the Places API
@@ -101,3 +100,8 @@ function fetchPlaceDetails(placeId, marker) {
     }
   });
 }
+
+// Add event listener for form submission to handle city search
+document.querySelector('#input').addEventListener('submit', searchCity);
+
+initMap();
