@@ -1,10 +1,7 @@
 // Selecting search input from DOM
 const searchInput = document.querySelector('#search-input');
-// Declare variables
-let autoComplete;
-let map;
-let infoWindow;
-let placesService;
+// Declare variables for Google Map and Places API
+let autoComplete, map, infoWindow, placesService;
 
 // Async function to initialize the map
 async function initMap() {
@@ -24,6 +21,11 @@ async function initMap() {
   autoComplete = new google.maps.places.Autocomplete(searchInput, {
     types: ['(cities)']
   });
+
+  // Event listener to check for changed bounds in order to propagate restaruants when map is moved
+  map.addListener('bounds_changed', function() {
+    searchRestaurants(map.getCenter());
+  })
 }
 
 // Search for a city and center the map on it
