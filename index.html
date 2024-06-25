@@ -13,6 +13,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
@@ -20,15 +23,45 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
 
-  <body>
-    <section class="hero is-medium mb-4 hero-background">
-      <div class="hero-body">
-        <p class="title is-1">WanderCast</p>
-        <p class="has-text-primary-95 subtitle">
-          Your Ultimate Food and Weather Planner
-        </p>
-      </div>
-    </section>
+<section class="hero is-medium mb-4 hero-background">
+  <div class="hero-body">
+    <p class="title is-1 bebas-neue-regular">WanderCast</p>
+    <p class="has-text-primary-95 subtitle">
+      Your Ultimate Food and Weather Planner
+    </p>
+    <button id="modeToggle" class="button is-light">Toggle Dark Mode</button>
+    <button id="showModal" class="button is-info">Learn More</button> <!-- Button to open the modal -->
+  </div>
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">About Wander Cast</p>
+        <button class="delete" aria-label="close"></button> <!-- Close button -->
+      </header>
+      <section class="modal-card-body" class="has-text-white">
+         <h3 class="title has-text-weight-bold has-text-info">Welcome to WanderCast!</h3>
+          <p>Ready to maximize your next outdoor adventure? WanderCast is here to streamline your planning process!</p>
+        <br>
+        <h4 class="subtitle has-text-weight-bold has-text-info">The Ultimate Planner</h4>
+          <p>Ever felt overwhelmed with the choices of what to eat, where to go, and, most importantly, deciding between indoor or patio seating? Look no further! WanderCast combines weather forecasts and local dining options into one seamless tool. Just input your destination, and we handle the rest—ensuring no more guessing games with the weather or dining logistics.</p>
+        <br>
+        <h4 class="subtitle has-text-weight-bold has-text-info">How to Use WanderCast</h4>
+          <p><strong>Step 1:</strong> Simply enter the city name in the "Search" bar.</p>
+          <p><strong>Step 2:</strong> Review the weather for your desired location and make informed dining choices.</p>
+        <br>
+        <h4 class="subtitle has-text-weight-bold has-text-info">Why WanderCast?</h4>
+          <p>Forget the hassle of multiple searches and toggling between screens. Say goodbye to the days of "Is that rain?" or "Please don't let that be rain." With WanderCast, patio seating disasters are averted before they can spoil your meal.</p>
+        <br>
+        <h4 class="subtitle has-text-weight-boldhas-text-info">Your Next Adventure Awaits!</h4>
+          <p>We're committed to making your culinary explorations easy and enjoyable. Trust WanderCast to navigate your next foodie outing with ease and confidence!</p>
+        
+      </section>
+    </div>
+  </div>
+</section>
+
+
     <section>
       <div class="columns">
         <div class="column is-one-third ml-4 mr-1">
@@ -80,7 +113,7 @@
                   </figure>
                 </div>
                 <div class="my-6 media-content">
-                  <p class="title is-4">Weather</p>
+                  <p class="title is-4 ">Weather</p>
                   <p class="subtitle is-6">@OpenWeatherApi</p>
                 </div>
               </div>
@@ -123,6 +156,8 @@
         </footer>
       </div>
     </section>
+  
+</div>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/gmap.js"></script>
     <script

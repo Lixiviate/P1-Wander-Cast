@@ -34,7 +34,35 @@ body {
   background-attachment: fixed;
 }
 
-.navbar-item.custom-title {
-  font-size: 8rem; /* Change this to make the text larger */
-  color: #3f23bc; /* Change this to your desired color */
+
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
+:root {
+    --background-color: #01070d; /* Default to dark mode background */
+    --text-color: #ecf0f1; /* Default to soft off-white text in dark mode */
+    --card-background-color: #2f31328e; /* Semi-transparent dark blue for cards in dark mode */
+}
+
+body.light-mode {
+    --background-color: #f0f0f0; /* Light grey for light mode background */
+    --text-color: #0a0a0a; /* Black for text in light mode */
+    --card-background-color: #ffffff; /* White for cards in light mode */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.card {
+    background-color: var(--card-background-color);
+    color: inherit; /* Use body's text color */
 }
