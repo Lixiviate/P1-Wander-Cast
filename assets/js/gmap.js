@@ -6,26 +6,28 @@ let autoComplete, map, infoWindow, placesService;
 // Async function to initialize the map
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
-
+  
   // Create Info Window to display restaurant info
   infoWindow = new google.maps.InfoWindow();
-
+  
   // Display map as zoomed out on first load
   map = new Map(document.querySelector("#map"), {
     center: { lat: 0, lng: 0 },
     zoom: 2,
-    MapId: '8e1d737c8c3da317',
+    mapId: '8e1d737c8c3da317',
   });
-
+  
   // autocomplete for search input, restricted to cities only
   autoComplete = new google.maps.places.Autocomplete(searchInput, {
     types: ['(cities)']
   });
-
+  
   // Event listener to check for changed bounds in order to propagate restaruants when map is moved
   map.addListener('bounds_changed', function() {
     searchRestaurants(map.getCenter());
   })
+
+  placesService = new google.maps.places.PlacesService(map);
 }
 
 // Search for a city and center the map on it
@@ -53,10 +55,9 @@ function searchRestaurants(location) {
   const request = {
     location: location,
     radius: '2500',
-    type: ['bar', 'cafe', 'restaurant']
+    types: ['bar', 'cafe', 'restaurant']
   };
 
-  placesService = new google.maps.places.PlacesService(map);
   placesService.nearbySearch(request, function(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       results.forEach(createMarker);
@@ -94,10 +95,31 @@ function fetchPlaceDetails(placeId, marker) {
         <strong style="color: black;">${placeName}</strong><br>
         <span style="color: black;">${placeVicinity}</span><br>
         <img src="${photoUrl}" alt="${placeName}" style="width:100px;height:100px;"><br>
-        <button class="button is-primary is-small" onclick="saveToFavorites('${placeName}', '${placeVicinity}')">Add to Favorites</button>
+        <button class="button is-primary is-small" onclick="saveToFavList('${placeName}', '${placeVicinity}')">Add to Favorites</button>
       </div>`;
       infoWindow.setContent(content);
       infoWindow.open(map, marker);
     }
   });
 }
+
+// Saves favorited restaurants to local storage
+function saveToFavList(name, vicinity) {
+  let favoriteList = JSON.parse(localStorage.getItem('favorites')) || [];
+  let favorite = {name: name, vicinity: vicinity};
+  let alreadyFavorite = false;
+    for (let i = 0; i < favoriteList.length; i++) {
+      if (favoriteList[i].name === name && favoriteList[i].vicinity === vicinity) {
+        alreadyFavorite = true;
+        break;
+      }
+    }
+  
+    if (!alreadyFavorite) {
+      favoriteList.push(favorite);
+      localStorage.setItem('favorites', JSON.stringify(favoriteList));
+      alert('Restaurant added to favorites list!');
+    } else {
+      alert('Restaurant already in favorites list!');
+    }
+  }
