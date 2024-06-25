@@ -52,16 +52,14 @@ function searchCity(event) {
 function searchRestaurants(location) {
   const request = {
     location: location,
-    radius: '1500',
-    type: ['restaurant']
+    radius: '2500',
+    type: ['bar', 'cafe', 'restaurant']
   };
 
   placesService = new google.maps.places.PlacesService(map);
   placesService.nearbySearch(request, function(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      for (let i = 0; i < results.length; i++) {
-        createMarker(results[i]);
-      }
+      results.forEach(createMarker);
     }
   });
 }
