@@ -138,6 +138,9 @@ function renderRestaurantList() {
   });
 }
 
+// search city on submit
+document.querySelector('#input').addEventListener('submit', searchCity);
+
 // Initialize map and render favorite list when page loads
   initMap();
   renderRestaurantList();
