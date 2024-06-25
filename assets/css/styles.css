@@ -5,3 +5,8 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
+
+    .navbar-item.custom-title {
+      font-size: 8rem; /* Change this to make the text larger */
+      color: #3f23bc; /* Change this to your desired color */
+    }
