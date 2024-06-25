@@ -25,3 +25,44 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+.hero-background {
+  background-image: url("https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
+:root {
+    --background-color: #01070d; /* Default to dark mode background */
+    --text-color: #ecf0f1; /* Default to soft off-white text in dark mode */
+    --card-background-color: #2f31328e; /* Semi-transparent dark blue for cards in dark mode */
+}
+
+body.light-mode {
+    --background-color: #f0f0f0; /* Light grey for light mode background */
+    --text-color: #0a0a0a; /* Black for text in light mode */
+    --card-background-color: #ffffff; /* White for cards in light mode */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.card {
+    background-color: var(--card-background-color);
+    color: inherit; /* Use body's text color */
+}
