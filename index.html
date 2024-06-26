@@ -24,6 +24,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css"
+    />
   </head>
   <body>
     <section class="hero is-medium mb-4 hero-background">
@@ -123,9 +127,7 @@
                   </div>
                   <div class="control">
                     <button type="submit" class="button is-link">
-                      <span class="icon"
-                        ><i class="fas fa-solid fa-check"></i
-                      ></span>
+                      <span class="icon"><i class="fas fa-check"></i></span>
                       <span>Search</span>
                     </button>
                   </div>
@@ -143,8 +145,9 @@
                 <div class="media-left">
                   <figure class="image is-96x96">
                     <img
-                      src="https://bulma.io/assets/images/placeholders/128x128.png"
-                      alt="Weather Icon Placeholder"
+                      id="image"
+                      src="https://openweathermap.org/img/wn/02n@2x.png"
+                      alt="Weather Icon"
                       class="is-rounded"
                     />
                   </figure>
@@ -154,6 +157,52 @@
                   <p class="subtitle is-6">@OpenWeatherApi</p>
                 </div>
               </div>
+              <div class="container">
+                <h1 class="title"></h1>
+                <form id="search-form">
+                  <div class="field">
+                    <label class="label">City</label>
+                    <div class="control"></div>
+                  </div>
+                  <div class="field">
+                    <div class="control"></div>
+                  </div>
+                </form>
+                <div id="weather-container">
+                  <h2 class="subtitle" id="cityName"></h2>
+                  <div class="columns">
+                    <div class="column">
+                      <h3 class="title is-3">Current Weather</h3>
+                      <section class="box">
+                          <p>
+                            <strong>Temperature:</strong> <span id="temp"></span>
+                          </p>
+                          <p>
+                            <strong>Main:</strong> <span id="main"></span>
+                          </p>
+                          <p>
+                            <strong>Description:</strong> <span id="description"></span>
+                          </p>
+                      </section>
+                    </div>
+                    <div class="column">
+                      <h3 class="title is-3">5-Day Forecast</h3>
+                      <div class="content" id="forecast-calendar">
+                        <!-- Forecast days will be dynamically added here -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="favorite-cities-container">
+                  <h2 class="subtitle"></h2>
+                  <!-- Favorite cities will be dynamically added here -->
+                </div>
+                <div id="favorite-city-temperature-container">
+                  <h3 class="title">Favorite City's Temperature</h3>
+                  <!-- Favorite city's temperature will be dynamically added here -->
+                </div>
+              </div>
+              <br />
               <div class="content">
                 Weather information will appear here once fetched from the API.
                 <footer class="card-footer">
@@ -213,6 +262,7 @@
 
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/gmap.js"></script>
+    <script src="./assets/js/owm.js"></script>
     <script
       async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&loading=async&libraries=places&callback=initMap"

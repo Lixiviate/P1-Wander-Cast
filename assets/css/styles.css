@@ -22,18 +22,8 @@ body {
   transition: background-color 0.7s, color 0.7s;
 }
 
-#map {
-  height: 450px;
-  width: 100%;
-}
-
-#map-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid var(--map-box-border-color);
-  padding: 10px;
-  transition: border-color 0.7s;
+strong {
+  color: var(--text-color);
 }
 
 .hero-background {
@@ -84,6 +74,31 @@ body {
 
 .hero-background .title.is-1 {
   font-size: 5rem; /* Larger size for larger screens */
+}
+
+#map {
+  height: 450px;
+  width: 100%;
+}
+
+#map-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid var(--map-box-border-color);
+  padding: 10px;
+  transition: border-color 0.7s;
+}
+
+#image {
+  position: absolute;
+  top:10px;
+  right:10px;
+  background:#c6ccc1;
+  height: 100px;
+  border-radius: 50%;
+  border: 0.2px dotted black;
+  box-shadow: 0 0 20px 2px #bfd485;
 }
 
 /* Smaller screens: less than 768px */
