@@ -1,8 +1,25 @@
-html,
+:root {
+  --background-color: #01070d; /* Default to dark mode background */
+  --text-color: #ecf0f1; /* Default to soft off-white text in dark mode */
+  --card-background-color: #2f31328e; /* Semi-transparent dark blue for cards in dark mode */
+  --input-text-color: #ecf0f1; /* Light color for dark mode */
+  --input-background-color: #2f31328e; /* Semi-transparent dark blue for input background in dark mode */
+  --map-box-border-color: #3273dc; /* Map box border color in dark mode */
+}
+
+body.light-mode {
+  --background-color: #f0f0f0; /* Light grey for light mode background */
+  --text-color: #0a0a0a; /* Black for text in light mode */
+  --card-background-color: #ffffff; /* White for cards in light mode */
+  --input-text-color: #0a0a0a; /* Black for input text in light mode */
+  --input-background-color: #ffffff; /* White for input background in light mode */
+  --map-box-border-color: #000000; /* Black for map box border in light mode */
+}
+
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.7s, color 0.7s;
 }
 
 #map {
@@ -14,8 +31,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid hsl(217, 71%, 53%);
+  border: 5px solid var(--map-box-border-color);
   padding: 10px;
+  transition: border-color 0.7s;
 }
 
 .hero-background {
@@ -25,16 +43,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
-.hero-background {
-  background-image: url("https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-
 
 .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
@@ -43,50 +51,44 @@ body {
 }
 
 .control.is-expanded {
-    flex-grow: 24; /* Increase this number to make the input field wider */
-  }
-
-/* 6/25 Updated the input to be reflective when the dark/light mode is applied and the Text in Header for Restaurants */
-:root {
-    --background-color: #01070d; /* Default to dark mode background */
-    --text-color: #ecf0f1; /* Default to soft off-white text in dark mode */
-    --card-background-color: #2f31328e; /* Semi-transparent dark blue for cards in dark mode */
-    --input-text-color: #ecf0f1;  /*Light color for dark mode*/
-}
-
-body.light-mode {
-    --background-color: #f0f0f0; /* Light grey for light mode background */
-    --text-color: #0a0a0a; /* Black for text in light mode */
-    --card-background-color: #ffffff; /* White for cards in light mode */
-    --input-text-color: #0a0a0a; /* Black for cards in light mode */
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+  flex-grow: 24; /* Increase this number to make the input field wider */
 }
 
 .card {
-    background-color: var(--card-background-color);
-    color: inherit; 
+  background-color: var(--card-background-color);
+  color: inherit;
+  transition: background-color 0.7s, color 0.7s;
 }
 
-.card-header-title {
-    color: var(--text-color); 
+.card-header-title, .title {
+  color: var(--text-color);
+  transition: color 0.7s;
 }
 
 .input {
-    color: var(--input-text-color);  
-    background-color: var(--input-background-color);  
+  color: var(--input-text-color);
+  background-color: var(--input-background-color);
+  transition: color 0.7s, background-color 0.7s;
+}
+
+.box {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.7s, color 0.7s;
+}
+
+.button {
+  color: var(--text-color);
+  transition: color 0.7s;
 }
 
 .hero-background .title.is-1 {
-    font-size: 5rem;  // Larger size for larger screens
+  font-size: 5rem; /* Larger size for larger screens */
 }
 
 /* Smaller screens: less than 768px */
 @media (max-width: 768px) {
-    .hero-background .title.is-1 {
-        font-size: 2.5rem;  // Smaller size for mobile devices
-    }
+  .hero-background .title.is-1 {
+    font-size: 2.5rem; /* Smaller size for mobile devices */
+  }
 }
