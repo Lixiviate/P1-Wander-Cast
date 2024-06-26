@@ -1,5 +1,5 @@
 const input = document.querySelector("#input");
-const city = document.querySelector("#city");
+const city = document.querySelector("#search-input");
 const forecast = document.querySelector("#forecast");
 const cityName = document.querySelector("#cityName");
 const temp = document.querySelector("#temp");
