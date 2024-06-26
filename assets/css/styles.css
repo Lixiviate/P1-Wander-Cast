@@ -46,7 +46,7 @@ body {
     flex-grow: 24; /* Increase this number to make the input field wider */
   }
 
-/* Updated the input to be reflective when the dark/light mode is applied and the Text in Header for Restaurants */
+/* 6/25 Updated the input to be reflective when the dark/light mode is applied and the Text in Header for Restaurants */
 :root {
     --background-color: #01070d; /* Default to dark mode background */
     --text-color: #ecf0f1; /* Default to soft off-white text in dark mode */
@@ -68,16 +68,16 @@ body {
 
 .card {
     background-color: var(--card-background-color);
-    color: inherit; /* Use body's text color */
+    color: inherit; 
 }
 
 .card-header-title {
-    color: var(--text-color); /* Ensures correct color based on theme */
+    color: var(--text-color); 
 }
 
 .input {
-    color: var(--input-text-color);  /* Use the variable for text color */
-    background-color: var(--input-background-color);  /* If you need to control background too */
+    color: var(--input-text-color);  
+    background-color: var(--input-background-color);  
 }
 
 .hero-background .title.is-1 {
