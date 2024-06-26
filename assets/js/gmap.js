@@ -145,7 +145,7 @@ function renderRestaurantList() {
   let listElement = document.querySelector("#favorite-restaurant-list");
   listElement.innerHTML = "";
 
-  favoriteList.forEach(function (favorite) {
+  favoriteList.forEach(function (favorite, i) {
     let listItem = document.createElement("li");
     listItem.innerHTML = `${favorite.name} - ${favorite.vicinity} <button onclick="deleteFromFavList(${i})" class="button is-small is-danger">X</button>`;
     listElement.appendChild(listItem);
