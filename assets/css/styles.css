@@ -43,6 +43,6 @@ body {
 }
 
 .card {
-    background-color: var(--card-background-color);
-    color: inherit; /* Use body's text color */
+  background-color: var(--card-background-color);
+  color: inherit; /* Use body's text color */
 }
