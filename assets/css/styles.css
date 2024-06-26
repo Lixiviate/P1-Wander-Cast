@@ -3,6 +3,7 @@
   --text-color: #ecf0f1; /* Default to soft off-white text in dark mode */
   --card-background-color: #2f31328e; /* Semi-transparent dark blue for cards in dark mode */
   --input-text-color: #ecf0f1; /* Light color for dark mode */
+  --input-background-color: #2f31328e; /* Semi-transparent dark blue for input background in dark mode */
 }
 
 body.light-mode {
@@ -10,6 +11,7 @@ body.light-mode {
   --text-color: #0a0a0a; /* Black for text in light mode */
   --card-background-color: #ffffff; /* White for cards in light mode */
   --input-text-color: #0a0a0a; /* Black for input text in light mode */
+  --input-background-color: #ffffff; /* White for input background in light mode */
 }
 
 body {
