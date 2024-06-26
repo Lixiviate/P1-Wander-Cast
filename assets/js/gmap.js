@@ -145,7 +145,7 @@ document.querySelector('#clear-restaurant-list').addEventListener('click', funct
 });
 
 
-// search city on submit
+// Search city on submit
 document.querySelector('#input').addEventListener('submit', searchCity);
 
 // Initialize map and render favorite list when page loads
