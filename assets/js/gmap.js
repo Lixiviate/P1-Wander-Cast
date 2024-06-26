@@ -67,10 +67,15 @@ function searchRestaurants(location) {
 
 // Create a marker on the map
 function createMarker(place) {
+  const markerIcon = {
+    url: './assets/images/foodMarker.png', // URL of the icon image
+    scaledSize: new google.maps.Size(32, 32) // Size of the icon (width, height)
+  };
   const marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
-  });
+    icon: markerIcon,
+    });
 
   // Add click event listener to display place details
   google.maps.event.addListener(marker, "click", function () {
