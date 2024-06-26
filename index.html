@@ -29,8 +29,8 @@
     <p class="has-text-primary-95 subtitle">
       Your Ultimate Food and Weather Planner
     </p>
-    <button id="modeToggle" class="button is-light">Toggle Dark Mode</button>
-    <button id="showModal" class="button is-info">Learn More</button> <!-- Button to open the modal -->
+    <button id="modeToggle" class="button is-light is-small">Toggle Dark Mode</button>
+    <button id="showModal" class="button is-info is-small">Learn More</button> <!-- Button to open the modal -->
   </div>
   <div id="modal-js-example" class="modal">
     <div class="modal-background"></div>
@@ -61,76 +61,59 @@
   </div>
 </section>
 
+      <section>
+        <div class="columns">
+            <!-- Search Form Column -->
+            <div class="column is-one-third ml-2">
+                <div class="field">
+                    <div class="control">
+                        <form onsubmit="return searchCity(event)">
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <input id="search-input" class="input" type="text" placeholder="Enter city name" required/>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-link">
+                                        <span class="icon"><i class="fas fa-solid fa-check"></i></span>
+                                        <span>Search</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-      <div class="columns">
-        <div class="column is-one-third ml-4 mr-1">
-          <div class="field">
-            <div class="control">
-              <form onsubmit="return searchCity(event)">
-                <div class="field has-addons">
-                  <div class="control is-expanded">
-                    <input
-                      id="search-input"
-                      class="input"
-                      type="text"
-                      placeholder="Enter city name"
-                      required
-                    />
-                  </div>
-                  <div class="control">
-                    <button type="submit" class="button is-link">
-                      <span class="icon">
-                        <i class="fas fa-solid fa-check"></i>
-                      </span>
-                      <span>Search</span>
-                    </button>
-                  </div>
+            <!-- Weather Card Column -->
+            <div class="column is-auto mr-4">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-96x96">
+                                    <img src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Weather Icon Placeholder" class="is-rounded"/>
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">Weather Details</p>
+                                <p class="subtitle is-6">@OpenWeatherApi</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Weather information will appear here once fetched from the API.
+                            <br/>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">Add to Favorites</a>
+                                <a href="#" class="card-footer-item">Remove from Favorites</a>
+                            </footer>
+                        </div>
+                    </div>
                 </div>
-              </form>
             </div>
-            <div class="control mt-2">
-              <button class="button is-danger is-outlined">
-                <span class="icon">
-                  <i class="fas fa-solid fa-heart"></i>
-                </span>
-                <span>Add Favorite City</span>
-              </button>
-            </div>
-          </div>
         </div>
-        <div class="column is-three-fifths">
-          <div class="card">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img
-                      class="is-rounded"
-                      src="https://bulma.io/assets/images/placeholders/128x128.png"
-                      alt="placeholder"
-                    />
-                  </figure>
-                </div>
-                <div class="my-6 media-content">
-                  <p class="title is-4 ">Weather</p>
-                  <p class="subtitle is-6">@OpenWeatherApi</p>
-                </div>
-              </div>
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris.
-                <br />
-                <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Add to Favorites</a>
-                  <a href="#" class="card-footer-item">Remove from Favorites</a>
-                </footer>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
+</div>
+
     <section class="mt-6 mb-5">
       <div class="card">
         <header class="card-header">
