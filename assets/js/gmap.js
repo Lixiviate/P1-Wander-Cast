@@ -1,5 +1,5 @@
 // Selecting search input from DOM
-const searchInput = document.querySelector('#search-input');
+const searchInput = document.querySelector("#search-input");
 // Declare variables for Google Map and Places API
 let autoComplete, map, infoWindow, placesService;
 
@@ -14,16 +14,16 @@ async function initMap() {
   map = new Map(document.querySelector("#map"), {
     center: { lat: 0, lng: 0 },
     zoom: 2,
-    mapId: '8e1d737c8c3da317',
+    mapId: "8e1d737c8c3da317",
   });
 
   // autocomplete for search input, restricted to cities only
   autoComplete = new google.maps.places.Autocomplete(searchInput, {
-    types: ['(cities)']
+    types: ["(cities)"],
   });
 
   // Event listener to check for changed bounds in order to propagate restaurants when map is moved
-  map.addListener('bounds_changed', function() {
+  map.addListener("bounds_changed", function () {
     searchRestaurants(map.getCenter());
   });
 
@@ -37,13 +37,13 @@ function searchCity(event) {
   const geocoder = new google.maps.Geocoder();
 
   // Geocoding the city name to get its location
-  geocoder.geocode({ address: city }, function(results, status) {
-    if (status === 'OK') {
+  geocoder.geocode({ address: city }, function (results, status) {
+    if (status === "OK") {
       map.setCenter(results[0].geometry.location);
       map.setZoom(15);
       searchRestaurants(results[0].geometry.location);
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      alert("Geocode was not successful for the following reason: " + status);
     }
   });
 
@@ -54,11 +54,11 @@ function searchCity(event) {
 function searchRestaurants(location) {
   const request = {
     location: location,
-    radius: '2500',
-    types: ['bar', 'cafe', 'restaurant']
+    radius: "2500",
+    types: ["bar", "cafe", "restaurant"],
   };
 
-  placesService.nearbySearch(request, function(results, status) {
+  placesService.nearbySearch(request, function (results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       results.forEach(createMarker);
     }
@@ -73,7 +73,7 @@ function createMarker(place) {
   });
 
   // Add click event listener to display place details
-  google.maps.event.addListener(marker, 'click', function() {
+  google.maps.event.addListener(marker, "click", function () {
     fetchPlaceDetails(place.place_id, marker);
   });
 }
@@ -82,13 +82,16 @@ function createMarker(place) {
 function fetchPlaceDetails(placeId, marker) {
   const request = {
     placeId: placeId,
-    fields: ['name', 'vicinity', 'photos']
+    fields: ["name", "vicinity", "photos"],
   };
 
   // Get details of the place using PlacesService and adding that content to the info window
-  placesService.getDetails(request, function(place, status) {
+  placesService.getDetails(request, function (place, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-      const photoUrl = place.photos && place.photos.length > 0 ? place.photos[0].getUrl() : 'https://via.placeholder.com/150';
+      const photoUrl =
+        place.photos && place.photos.length > 0
+          ? place.photos[0].getUrl()
+          : "https://via.placeholder.com/150";
       const placeName = place.name;
       const placeVicinity = place.vicinity;
       const content = `<div style="color: black;">
@@ -105,11 +108,14 @@ function fetchPlaceDetails(placeId, marker) {
 
 // Saves favorited restaurants to local storage
 function saveToFavList(name, vicinity) {
-  let favoriteListStorage = JSON.parse(localStorage.getItem('favorites')) || [];
-  let favorite = {name: name, vicinity: vicinity};
+  let favoriteListStorage = JSON.parse(localStorage.getItem("favorites")) || [];
+  let favorite = { name: name, vicinity: vicinity };
   let alreadyFavorited = false;
   for (let i = 0; i < favoriteListStorage.length; i++) {
-    if (favoriteListStorage[i].name === name && favoriteListStorage[i].vicinity === vicinity) {
+    if (
+      favoriteListStorage[i].name === name &&
+      favoriteListStorage[i].vicinity === vicinity
+    ) {
       alreadyFavorited = true;
       break;
     }
@@ -117,37 +123,46 @@ function saveToFavList(name, vicinity) {
 
   if (!alreadyFavorited) {
     favoriteListStorage.push(favorite);
-    localStorage.setItem('favorites', JSON.stringify(favoriteListStorage));
-    alert('Restaurant added to favorites list!');
+    localStorage.setItem("favorites", JSON.stringify(favoriteListStorage));
+    alert("Restaurant added to favorites list!");
     renderRestaurantList(); // Update the list
   } else {
-    alert('Restaurant already in favorites list!');
+    alert("Restaurant already in favorites list!");
   }
+}
+
+// Delete restaurant from list
+function deleteFromFavList(i) {
+  let favoriteListStorage = JSON.parse(localStorage.getItem("favorites")) || [];
+  favoriteListStorage.splice(i, 1);
+  localStorage.setItem("favorites", JSON.stringify(favoriteListStorage));
+  renderRestaurantList();
 }
 
 // Renders the favorite restaurant list
 function renderRestaurantList() {
-  let favoriteList = JSON.parse(localStorage.getItem('favorites')) || [];
-  let listElement = document.querySelector('#favorite-restaurant-list');
-  listElement.innerHTML = '';
+  let favoriteList = JSON.parse(localStorage.getItem("favorites")) || [];
+  let listElement = document.querySelector("#favorite-restaurant-list");
+  listElement.innerHTML = "";
 
-  favoriteList.forEach(function(favorite) {
-    let listItem = document.createElement('li');
-    listItem.textContent = `${favorite.name} - ${favorite.vicinity}`;
+  favoriteList.forEach(function (favorite) {
+    let listItem = document.createElement("li");
+    listItem.innerHTML = `${favorite.name} - ${favorite.vicinity} <button onclick="deleteFromFavList(${i})" class="button is-small is-danger">X</button>`;
     listElement.appendChild(listItem);
   });
 }
 
 // Clears all favorites restaurants from local storage
-document.querySelector('#clear-restaurant-list').addEventListener('click', function clearRestaurantList() {
-  localStorage.removeItem('favorites');
-  renderRestaurantList();
-});
-
+document
+  .querySelector("#clear-restaurant-list")
+  .addEventListener("click", function clearRestaurantList() {
+    localStorage.removeItem("favorites");
+    renderRestaurantList();
+  });
 
 // Search city on submit
-document.querySelector('#input').addEventListener('submit', searchCity);
+document.querySelector("#input").addEventListener("submit", searchCity);
 
 // Initialize map and render favorite list when page loads
-  initMap();
-  renderRestaurantList();
+initMap();
+renderRestaurantList();
