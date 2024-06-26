@@ -4,6 +4,7 @@
   --card-background-color: #2f31328e; /* Semi-transparent dark blue for cards in dark mode */
   --input-text-color: #ecf0f1; /* Light color for dark mode */
   --input-background-color: #2f31328e; /* Semi-transparent dark blue for input background in dark mode */
+  --map-box-border-color: #3273dc;
 }
 
 body.light-mode {
@@ -12,6 +13,7 @@ body.light-mode {
   --card-background-color: #ffffff; /* White for cards in light mode */
   --input-text-color: #0a0a0a; /* Black for input text in light mode */
   --input-background-color: #ffffff; /* White for input background in light mode */
+  --map-box-border-color: #f0f0f0; /* Black for map box border in light mode */
 }
 
 body {
@@ -28,7 +30,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid hsl(217, 71%, 53%);
+  border: 5px solid var(--map-box-border-color);
   padding: 10px;
 }
 
@@ -55,13 +57,22 @@ body {
   color: inherit;
 }
 
-.card-header-title {
+.card-header-title, .title {
   color: var(--text-color);
 }
 
 .input {
   color: var(--input-text-color);
   background-color: var(--input-background-color);
+}
+
+.box {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.button {
+  color: var(--text-color);
 }
 
 .hero-background .title.is-1 {
