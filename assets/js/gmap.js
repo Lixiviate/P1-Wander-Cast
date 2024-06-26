@@ -138,6 +138,13 @@ function renderRestaurantList() {
   });
 }
 
+// Clears all favorites restaurants from local storage
+document.querySelector('#clear-restaurant-list').addEventListener('click', function clearRestaurantList() {
+  localStorage.removeItem('favorites');
+  renderRestaurantList();
+});
+
+
 // search city on submit
 document.querySelector('#input').addEventListener('submit', searchCity);
 
