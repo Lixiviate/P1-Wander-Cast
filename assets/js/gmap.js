@@ -92,8 +92,8 @@ function fetchPlaceDetails(placeId, marker) {
         place.photos && place.photos.length > 0
           ? place.photos[0].getUrl()
           : "https://via.placeholder.com/150";
-      const placeName = place.name;
-      const placeVicinity = place.vicinity;
+      const placeName = place.name.replace(/'/g, "");
+      const placeVicinity = place.vicinity.replace(/'/g, "");
       const content = `<div style="color: black;">
         <strong style="color: black;">${placeName}</strong><br>
         <span style="color: black;">${placeVicinity}</span><br>
@@ -153,16 +153,13 @@ function renderRestaurantList() {
 }
 
 // Clears all favorites restaurants from local storage
-document
-  .querySelector("#clear-restaurant-list")
-  .addEventListener("click", function clearRestaurantList() {
-    localStorage.removeItem("favorites");
-    renderRestaurantList();
-  });
+document.querySelector("#clear-restaurant-list").addEventListener("click", function clearRestaurantList() {
+  localStorage.removeItem("favorites");
+  renderRestaurantList();
+});
 
 // Search city on submit
 document.querySelector("#input").addEventListener("submit", searchCity);
 
 // Initialize map and render favorite list when page loads
-initMap();
 renderRestaurantList();
