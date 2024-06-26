@@ -24,7 +24,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css"
@@ -128,9 +127,7 @@
                   </div>
                   <div class="control">
                     <button type="submit" class="button is-link">
-                      <span class="icon"
-                        ><i class="fas fa-solid fa-check"></i
-                      ></span>
+                      <span class="icon"><i class="fas fa-check"></i></span>
                       <span>Search</span>
                     </button>
                   </div>
@@ -175,20 +172,21 @@
                   <h2 class="subtitle" id="cityName"></h2>
                   <div class="columns">
                     <div class="column">
-                      <h3 class="title">Current Weather</h3>
-                      <div class="content">
-                        <p>
-                          <strong>Temperature:</strong> <span id="temp"></span>
-                        </p>
-                        <p><strong>Main:</strong> <span id="main"></span></p>
-                        <p>
-                          <strong>Description:</strong>
-                          <span id="description"></span>
-                        </p>
-                      </div>
+                      <h3 class="title is-3">Current Weather</h3>
+                      <section class="box">
+                          <p>
+                            <strong>Temperature:</strong> <span id="temp"></span>
+                          </p>
+                          <p>
+                            <strong>Main:</strong> <span id="main"></span>
+                          </p>
+                          <p>
+                            <strong>Description:</strong> <span id="description"></span>
+                          </p>
+                      </section>
                     </div>
                     <div class="column">
-                      <h3 class="title">5-Day Forecast</h3>
+                      <h3 class="title is-3">5-Day Forecast</h3>
                       <div class="content" id="forecast-calendar">
                         <!-- Forecast days will be dynamically added here -->
                       </div>
@@ -208,8 +206,7 @@
               <div class="content">
                 Weather information will appear here once fetched from the API.
                 <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Add to Favorites </a>
-
+                  <a href="#" class="card-footer-item">Add to Favorites</a>
                   <a href="#" class="card-footer-item">Remove from Favorites</a>
                 </footer>
               </div>
