@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+   
+    
   </head>
 
   <body>
@@ -23,10 +27,10 @@
         <div class="column is-one-third ml-4 mr-1">
           <div class="field">
             <div class="control">
-              <form id="input">
+              <form id="input", onsubmit="return searchCity(event)" >
                 <div class="field has-addons">
                   <div class="control is-expanded">
-                    <input id="search-input" class="input" type="text" placeholder="Enter city name" required />
+                    <input id="city"id="search-input" class="input" type="text" placeholder="Enter city name"required/>
                   </div>
                   <div class="control">
                     <button type="submit" class="button is-link">
@@ -40,7 +44,7 @@
               </form>
             </div>
             <div class="control mt-2">
-              <button class="button is-danger is-outlined">
+              <button type="submit"  class="button is-danger is-outlined">
                 <span class="icon">
                   <i class="fas fa-solid fa-heart"></i>
                 </span>
@@ -63,16 +67,52 @@
                   <p class="subtitle is-6">@OpenWeatherApi</p>
                 </div>
               </div>
-              <div class="content">
-                <div id="weatherContainer">
-                  <h2 id="cityName"></h2>
-                  <p id="temp"></p>
-                  <p id="main"></p>
-                  <p id="description"></p>
+              <div class="container">
+                <h1 class="title"></h1>
+                <form id="search-form">
+                  <div class="field">
+                    <label class="label">City</label>
+                    <div class="control">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control">
+                    </div>
+                  </div>
+                </form>
+                <div id="weather-container">
+                  <h2 class="subtitle" id="cityName"></h2>
+                  <div class="columns">
+                    <div class="column">
+                      <h3 class="title">Current Weather</h3>
+                      <div class="content">
+                        
+                        <p><strong>Temperature:</strong> <span id="temp"></span></p>
+                        <p><strong>Main:</strong> <span id="main"></span></p>
+                        <p><strong>Description:</strong> <span id="description"></span></p>
+                      </div>
+                    </div>
+                    <div class="column">
+                      <h3 class="title">5-Day Forecast</h3>
+                      <div class="content" id="forecast-calendar">
+                        <!-- Forecast days will be dynamically added here -->
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <div id="favorite-cities-container">
+                  <h2 class="subtitle"></h2>
+                  <!-- Favorite cities will be dynamically added here -->
+                </div>
+                <div id="favorite-city-temperature-container">
+                  <h3 class="title">Favorite City's Temperature</h3>
+                  <!-- Favorite city's temperature will be dynamically added here -->
+                </div>
+              </div> 
                 <br />
                 <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Add to Favorites</a>
+                  <a href="#" class="card-footer-item">Add to Favorites </a>
+                  
                   <a href="#" class="card-footer-item">Remove from Favorites</a>
                 </footer>
               </div>
@@ -108,6 +148,11 @@
     </section>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/gmap.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&libraries=places&callback=initMap"></script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&libraries=places&callback=initMap"
+    ></script> 
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales-all.min.js"></script>
   </body>
 </html>
