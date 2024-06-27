@@ -1,7 +1,20 @@
+// Google Maps API secret
+const googleMapsApiKey = 'AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo';
 // Selecting search input from DOM
 const searchInput = document.querySelector("#search-input");
 // Declare variables for Google Map and Places API
 let autoComplete, map, infoWindow, placesService;
+
+// Function to load the Google Maps API script
+function loadGoogleMapsScript() {
+  const script = document.createElement('script');
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&loading=async&libraries=places&callback=initMap`;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
+// Load the Google Maps script
+loadGoogleMapsScript();
 
 // Async function to initialize the map
 async function initMap() {
