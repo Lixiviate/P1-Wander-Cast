@@ -5,6 +5,7 @@
   --input-text-color: #ecf0f1; /* Light color for dark mode */
   --input-background-color: #2f31328e; /* Semi-transparent dark blue for input background in dark mode */
   --map-box-border-color: #3273dc; /* Map box border color in dark mode */
+  --dark-text: #0a0a0a; /* Black for unchanging text color */
 }
 
 body.light-mode {
@@ -26,6 +27,10 @@ strong {
   color: var(--text-color);
 }
 
+.dark-text-button {
+  color: var(--dark-text) !important;
+}
+
 .hero-background {
   background-image: url("https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   background-size: cover;
@@ -41,7 +46,7 @@ strong {
 }
 
 .control.is-expanded {
-  flex-grow: 24; /* Increase this number to make the input field wider */
+  flex-grow: 24; /* Changes size of input field */
 }
 
 .card {
@@ -50,14 +55,19 @@ strong {
   transition: background-color 0.7s, color 0.7s;
 }
 
-.card-header-title, .title {
+.card-header-title,
+.title {
   color: var(--text-color);
   transition: color 0.7s;
 }
 
 .input {
-  color: var(--input-text-color);
   background-color: var(--input-background-color);
+  transition: color 0.7s, background-color 0.7s;
+}
+
+.input::placeholder {
+  color: var(--input-text-color);
   transition: color 0.7s, background-color 0.7s;
 }
 
@@ -92,9 +102,9 @@ strong {
 
 #image {
   position: absolute;
-  top:10px;
-  right:10px;
-  background:#c6ccc1;
+  top: 10px;
+  right: 10px;
+  background: #c6ccc1;
   height: 100px;
   border-radius: 50%;
   border: 0.2px dotted black;

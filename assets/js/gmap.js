@@ -1,7 +1,20 @@
+// Google Maps API secret
+const googleMapsApiKey = "AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo";
 // Selecting search input from DOM
 const searchInput = document.querySelector("#search-input");
 // Declare variables for Google Map and Places API
 let autoComplete, map, infoWindow, placesService;
+
+// Function to load the Google Maps API script
+function loadGoogleMapsScript() {
+  const script = document.createElement("script");
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&loading=async&libraries=places&callback=initMap`;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
+// Load the Google Maps script
+loadGoogleMapsScript();
 
 // Async function to initialize the map
 async function initMap() {
@@ -68,14 +81,14 @@ function searchRestaurants(location) {
 // Create a marker on the map
 function createMarker(place) {
   const markerIcon = {
-    url: './assets/images/foodMarker.png', // URL of the icon image
-    scaledSize: new google.maps.Size(32, 32) // Size of the icon (width, height)
+    url: "./assets/images/foodMarker.png", // URL of the icon image
+    scaledSize: new google.maps.Size(32, 32), // Size of the icon (width, height)
   };
   const marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
     icon: markerIcon,
-    });
+  });
 
   // Add click event listener to display place details
   google.maps.event.addListener(marker, "click", function () {
@@ -158,10 +171,12 @@ function renderRestaurantList() {
 }
 
 // Clears all favorites restaurants from local storage
-document.querySelector("#clear-restaurant-list").addEventListener("click", function clearRestaurantList() {
-  localStorage.removeItem("favorites");
-  renderRestaurantList();
-});
+document
+  .querySelector("#clear-restaurant-list")
+  .addEventListener("click", function clearRestaurantList() {
+    localStorage.removeItem("favorites");
+    renderRestaurantList();
+  });
 
 // Search city on submit
 document.querySelector("#input").addEventListener("submit", searchCity);

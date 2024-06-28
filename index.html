@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Wander Cast: Your Travel Companion</title>
+    <!-- Import styles and fonts -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -30,20 +31,24 @@
     />
   </head>
   <body>
+    <!-- Hero section with title and light/dark + info toggle buttons -->
     <section class="hero is-medium mb-4 hero-background">
       <div class="hero-body">
         <p class="title is-1 bebas-neue-regular">WanderCast</p>
         <p class="has-text-primary-95 subtitle">
           Your Ultimate Food and Weather Planner
         </p>
-        <button id="modeToggle" class="button is-light is-small">
+        <button
+          id="modeToggle"
+          class="button is-light is-small dark-text-button"
+        >
           Toggle Dark Mode
         </button>
-        <button id="showModal" class="button is-info is-small">
+        <!-- Button to open additional info modal -->
+        <button id="showModal" class="button is-info is-small dark-text-button">
           Learn More
         </button>
       </div>
-      <!-- Button to open the modal -->
       <div id="modal-js-example" class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -77,12 +82,11 @@
               How to Use WanderCast
             </h4>
             <p>
-              <strong>Step 1:</strong> Simply enter the city name in the
-              "Search" bar.
+              <b>Step 1:</b> Simply enter the city name in the "Search" bar.
             </p>
             <p>
-              <strong>Step 2:</strong> Review the weather for your desired
-              location and make informed dining choices.
+              <b>Step 2:</b> Review the weather for your desired location and
+              make informed dining choices.
             </p>
             <br />
             <h4 class="subtitle has-text-weight-bold has-text-info">
@@ -107,7 +111,7 @@
         </div>
       </div>
     </section>
-
+    <!-- Main content with search form and weather details -->
     <section>
       <div class="columns">
         <!-- Search Form Column -->
@@ -119,7 +123,7 @@
                   <div class="control is-expanded">
                     <input
                       id="search-input"
-                      class="input"
+                      class="input is-link"
                       type="text"
                       placeholder="Enter city name"
                       required
@@ -136,7 +140,6 @@
             </div>
           </div>
         </div>
-
         <!-- Weather Card Column -->
         <div class="column is-auto mr-4">
           <div class="card">
@@ -174,15 +177,14 @@
                     <div class="column">
                       <h3 class="title is-3">Current Weather</h3>
                       <section class="box">
-                          <p>
-                            <strong>Temperature:</strong> <span id="temp"></span>
-                          </p>
-                          <p>
-                            <strong>Main:</strong> <span id="main"></span>
-                          </p>
-                          <p>
-                            <strong>Description:</strong> <span id="description"></span>
-                          </p>
+                        <p>
+                          <strong>Temperature:</strong> <span id="temp"></span>
+                        </p>
+                        <p><strong>Main:</strong> <span id="main"></span></p>
+                        <p>
+                          <strong>Description:</strong>
+                          <span id="description"></span>
+                        </p>
                       </section>
                     </div>
                     <div class="column">
@@ -198,33 +200,25 @@
                   <!-- Favorite cities will be dynamically added here -->
                 </div>
                 <div id="favorite-city-temperature-container">
-                  <h3 class="title">Favorite City's Temperature</h3>
+                  <h3 class="title mt-5">Favorite City's Temperature</h3>
                   <!-- Favorite city's temperature will be dynamically added here -->
                 </div>
               </div>
               <br />
-              <div class="content">
-                Weather information will appear here once fetched from the API.
-                <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Add to Favorites</a>
-                  <a href="#" class="card-footer-item">Remove from Favorites</a>
-                </footer>
-              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">Add to Favorites</a>
+                <a href="#" class="card-footer-item">Remove from Favorites</a>
+              </footer>
             </div>
           </div>
         </div>
       </div>
     </section>
-
+    <!-- Section for restaurant details and map -->
     <section class="mt-6 mb-5">
       <div class="card">
         <header class="card-header">
           <p class="card-header-title">Check Out Restaurants Nearby</p>
-          <button class="card-header-icon" aria-label="more options">
-            <span class="icon">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
         </header>
         <div class="card-content">
           <div class="content">
@@ -259,13 +253,9 @@
         </footer>
       </div>
     </section>
-
+    <!-- JavaScript files -->
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/gmap.js"></script>
     <script src="./assets/js/owm.js"></script>
-    <script
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&loading=async&libraries=places&callback=initMap"
-    ></script>
   </body>
 </html>
