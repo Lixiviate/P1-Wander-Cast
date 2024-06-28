@@ -100,7 +100,7 @@ function createMarker(place) {
 function fetchPlaceDetails(placeId, marker) {
   const request = {
     placeId: placeId,
-    fields: ["name", "vicinity", "photos"],
+    fields: ["name", "vicinity", "photos", 'rating'],
   };
 
   // Get details of the place using PlacesService and adding that content to the info window
@@ -112,9 +112,11 @@ function fetchPlaceDetails(placeId, marker) {
           : "https://via.placeholder.com/150";
       const placeName = place.name.replace(/'/g, "");
       const placeVicinity = place.vicinity.replace(/'/g, "");
+      const placeRating = place.rating ? `${place.rating} <i class="fas fa-star" style="color: #FFC300;"></i>` : "No ratings available";
       const content = `<div style="color: black;">
         <strong style="color: black;">${placeName}</strong><br>
         <span style="color: black;">${placeVicinity}</span><br>
+        <span style="color: black;">${placeRating}'s</span><br>
         <img src="${photoUrl}" alt="${placeName}" style="width:100px;height:100px;"><br>
         <button class="button is-primary is-small" onclick="saveToFavList('${placeName}', '${placeVicinity}')">Add to Favorites</button>
       </div>`;
