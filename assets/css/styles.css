@@ -5,6 +5,7 @@
   --input-text-color: #ecf0f1; /* Light color for dark mode */
   --input-background-color: #2f31328e; /* Semi-transparent dark blue for input background in dark mode */
   --map-box-border-color: #3273dc; /* Map box border color in dark mode */
+  --dark-text: #0a0a0a /* Black for unchanging text color */
 }
 
 body.light-mode {
@@ -24,6 +25,10 @@ body {
 
 strong {
   color: var(--text-color);
+}
+
+.dark-text-button {
+color: var(--dark-text) !important;
 }
 
 .hero-background {
