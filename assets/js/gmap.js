@@ -100,7 +100,7 @@ function createMarker(place) {
 function fetchPlaceDetails(placeId, marker) {
   const request = {
     placeId: placeId,
-    fields: ["name", "vicinity", "photos"],
+    fields: ["name", "vicinity", "photos", 'rating'],
   };
 
   // Get details of the place using PlacesService and adding that content to the info window
@@ -112,11 +112,14 @@ function fetchPlaceDetails(placeId, marker) {
           : "https://via.placeholder.com/150";
       const placeName = place.name.replace(/'/g, "");
       const placeVicinity = place.vicinity.replace(/'/g, "");
+      const placeRatingWithStar = place.rating ? `${place.rating} <i class="fas fa-star" style="color: #FFC300;"></i>` : "No ratings available";
+      const placeRating = place.rating ? place.rating : "No ratings available";
       const content = `<div style="color: black;">
         <strong style="color: black;">${placeName}</strong><br>
         <span style="color: black;">${placeVicinity}</span><br>
+        <span style="color: black;">${placeRatingWithStar}'s</span><br>
         <img src="${photoUrl}" alt="${placeName}" style="width:100px;height:100px;"><br>
-        <button class="button is-primary is-small" onclick="saveToFavList('${placeName}', '${placeVicinity}')">Add to Favorites</button>
+        <button class="button is-primary is-small" onclick="saveToFavList('${placeName}', '${placeVicinity}', '${placeRating}')">Add to Favorites</button>
       </div>`;
       infoWindow.setContent(content);
       infoWindow.open(map, marker);
@@ -125,9 +128,9 @@ function fetchPlaceDetails(placeId, marker) {
 }
 
 // Saves favorited restaurants to local storage
-function saveToFavList(name, vicinity) {
+function saveToFavList(name, vicinity, rating) {
   let favoriteListStorage = JSON.parse(localStorage.getItem("favorites")) || [];
-  let favorite = { name: name, vicinity: vicinity };
+  let favorite = { name: name, vicinity: vicinity, rating: rating };
   let alreadyFavorited = false;
   for (let i = 0; i < favoriteListStorage.length; i++) {
     if (
@@ -150,9 +153,9 @@ function saveToFavList(name, vicinity) {
 }
 
 // Delete restaurant from list
-function deleteFromFavList(i) {
+function deleteFromFavList(index) {
   let favoriteListStorage = JSON.parse(localStorage.getItem("favorites")) || [];
-  favoriteListStorage.splice(i, 1);
+  favoriteListStorage.splice(index, 1);
   localStorage.setItem("favorites", JSON.stringify(favoriteListStorage));
   renderRestaurantList();
 }
@@ -162,10 +165,11 @@ function renderRestaurantList() {
   let favoriteList = JSON.parse(localStorage.getItem("favorites")) || [];
   let listElement = document.querySelector("#favorite-restaurant-list");
   listElement.innerHTML = "";
-
-  favoriteList.forEach(function (favorite, i) {
+  
+  favoriteList.forEach(function (favorite, index) {
+    const ratingWithStar = favorite.rating ? `${favorite.rating} <i class="fas fa-star" style="color: #FFC300;"></i>` : "No ratings available";
     let listItem = document.createElement("li");
-    listItem.innerHTML = `${favorite.name} - ${favorite.vicinity} <button onclick="deleteFromFavList(${i})" class="button is-small is-danger">X</button>`;
+    listItem.innerHTML = `${favorite.name} - ${favorite.vicinity} - ${ratingWithStar}'s <button onclick="deleteFromFavList(${index})" class="button mb-2 is-small is-danger">X</button>`;
     listElement.appendChild(listItem);
   });
 }
