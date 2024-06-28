@@ -46,7 +46,7 @@ color: var(--dark-text) !important;
 }
 
 .control.is-expanded {
-  flex-grow: 24; /* Increase this number to make the input field wider */
+  flex-grow: 24; /* Changes size of input field */
 }
 
 .card {
@@ -61,8 +61,12 @@ color: var(--dark-text) !important;
 }
 
 .input {
-  color: var(--input-text-color);
   background-color: var(--input-background-color);
+  transition: color 0.7s, background-color 0.7s;
+}
+
+.input::placeholder {
+  color: var(--input-text-color);
   transition: color 0.7s, background-color 0.7s;
 }
 
