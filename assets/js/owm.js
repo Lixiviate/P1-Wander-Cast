@@ -98,7 +98,7 @@ async function searchCity(event) {
 // Call the searchCity function with the initial city
 searchCity(null);
 
-weatherUpdate("New York");
+weatherUpdate();
 
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('forecast-calendar');
