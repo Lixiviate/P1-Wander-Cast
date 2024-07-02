@@ -24,10 +24,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css"
-    />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+    
   </head>
   <body>
     <section class="hero is-medium mb-4 hero-background">
@@ -161,7 +160,7 @@
                 <h1 class="title"></h1>
                 <form id="search-form">
                   <div class="field">
-                    <label class="label">City</label>
+                    <label class="title is-3">City</label>
                     <div class="control"></div>
                   </div>
                   <div class="field">
@@ -183,13 +182,22 @@
                           <p>
                             <strong>Description:</strong> <span id="description"></span>
                           </p>
+                          <p>
+                            <strong>Humidity:</strong> <span id="humidity"></span>
+                          </p>
+                          <p>
+                            <strong>Wind:</strong> <span id="wind"></span>
+                          </p>
                       </section>
+
                     </div>
                     <div class="column">
-                      <h3 class="title is-3">5-Day Forecast</h3>
-                      <div class="content" id="forecast-calendar">
+                      <h3 class="title is-3">5-Day Forecast Calendar</h3>
+                      <div id="forecast-calendar">
+                        <div class="content" id="forecast-calendar">
                         <!-- Forecast days will be dynamically added here -->
                       </div>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -267,5 +275,7 @@
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilrgRiv59bAFLwncacKtKSanLVkNmIEo&loading=async&libraries=places&callback=initMap"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+
   </body>
 </html>

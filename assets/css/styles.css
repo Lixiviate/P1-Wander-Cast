@@ -100,7 +100,30 @@ strong {
   border: 0.2px dotted black;
   box-shadow: 0 0 20px 2px #bfd485;
 }
+.forecast-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+.forecast-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.forecast-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.forecast-card h6 {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
 /* Smaller screens: less than 768px */
 @media (max-width: 768px) {
   .hero-background .title.is-1 {
