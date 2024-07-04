@@ -100,7 +100,7 @@ function createMarker(place) {
 function fetchPlaceDetails(placeId, marker) {
   const request = {
     placeId: placeId,
-    fields: ["name", "vicinity", "photos", 'rating'],
+    fields: ["name", "vicinity", "photos", "rating"],
   };
 
   // Get details of the place using PlacesService and adding that content to the info window
@@ -112,7 +112,9 @@ function fetchPlaceDetails(placeId, marker) {
           : "https://via.placeholder.com/150";
       const placeName = place.name.replace(/'/g, "");
       const placeVicinity = place.vicinity.replace(/'/g, "");
-      const placeRatingWithStar = place.rating ? `${place.rating} <i class="fas fa-star" style="color: #FFC300;"></i>` : "No ratings available";
+      const placeRatingWithStar = place.rating
+        ? `${place.rating} <i class="fas fa-star" style="color: #FFC300;"></i>`
+        : "No ratings available";
       const placeRating = place.rating ? place.rating : "No ratings available";
       const content = `<div style="color: black;">
         <strong style="color: black;">${placeName}</strong><br>
@@ -165,9 +167,11 @@ function renderRestaurantList() {
   let favoriteList = JSON.parse(localStorage.getItem("favorites")) || [];
   let listElement = document.querySelector("#favorite-restaurant-list");
   listElement.innerHTML = "";
-  
+
   favoriteList.forEach(function (favorite, index) {
-    const ratingWithStar = favorite.rating ? `${favorite.rating} <i class="fas fa-star" style="color: #FFC300;"></i>` : "No ratings available";
+    const ratingWithStar = favorite.rating
+      ? `${favorite.rating} <i class="fas fa-star" style="color: #FFC300;"></i>`
+      : "No ratings available";
     let listItem = document.createElement("li");
     listItem.innerHTML = `${favorite.name} - ${favorite.vicinity} - ${ratingWithStar}'s <button onclick="deleteFromFavList(${index})" class="button mb-2 is-small is-danger">X</button>`;
     listElement.appendChild(listItem);

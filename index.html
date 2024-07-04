@@ -24,10 +24,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
-    
   </head>
   <body>
     <!-- Hero section with title and light/dark + info toggle buttons -->
@@ -161,38 +162,28 @@
               </div>
               <div class="container">
                 <h1 class="title"></h1>
-                <form id="search-form">
-                  <div class="field">
-                    <label class="title is-3">City</label>
-                    <div class="control"></div>
-                  </div>
-                  <div class="field">
-                    <div class="control"></div>
-                  </div>
-                </form>
                 <div id="weather-container">
                   <h2 class="subtitle" id="cityName"></h2>
                   <div class="columns">
                     <div class="column">
                       <h3 class="title is-3">Current Weather</h3>
                       <section class="box">
-                          <p>
-                            <strong>Temperature:</strong> <span id="temp"></span>
-                          </p>
+                        <p>
+                          <strong>Temperature:</strong> <span id="temp"></span>
+                        </p>
                           <p>
                             <strong>Main:</strong> <span id="main"></span>
                           </p>
-                          <p>
+                        <p>
                             <strong>Description:</strong> <span id="description"></span>
-                          </p>
-                          <p>
-                            <strong>Humidity:</strong> <span id="humidity"></span>
-                          </p>
+                        </p>
+                        <p>
+                          <strong>Humidity:</strong> <span id="humidity"></span>
+                        </p>
                           <p>
                             <strong>Wind:</strong> <span id="wind"></span>
                           </p>
                       </section>
-
                     </div>
                     <div class="column">
                       <h3 class="title is-3">5-Day Forecast Calendar</h3>
@@ -266,6 +257,6 @@
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/gmap.js"></script>
     <script src="./assets/js/owm.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
   </body>
 </html>
