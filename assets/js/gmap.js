@@ -24,13 +24,13 @@ async function initMap() {
   infoWindow = new google.maps.InfoWindow();
 
   // Display map as zoomed out on first load
-  map = new Map(document.querySelector("#map"), {
+  map = new google.maps.Map(document.querySelector("#map"), {
     center: { lat: 0, lng: 0 },
     zoom: 2,
     mapId: "8e1d737c8c3da317",
   });
 
-  // autocomplete for search input, restricted to cities only
+  // Autocomplete for search input, restricted to cities only
   autoComplete = new google.maps.places.Autocomplete(searchInput, {
     types: ["(cities)"],
   });
