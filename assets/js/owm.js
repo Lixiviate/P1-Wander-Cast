@@ -29,29 +29,21 @@ async function fetchWeather(city) {
 // Fetch the forecast data for the given city
 async function fetchForecast(city) {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=1e4163859e4c095643dce57ff89370dd`
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=1e4163859e4c095643dce57ff89370dd&units=imperial`
   );
   const data = await response.json();
   return data;
 }
 
 // Update the weather data on the page
-async function updateWeatherData(weatherData) {
-  const cityNameElement = document.getElementById("cityName");
-  const tempElement = document.getElementById("temp");
-  const mainElement = document.getElementById("main");
-  const descriptionElement = document.getElementById("description");
-  const humidityElement = document.getElementById("humidity");
-  const windElement = document.getElementById("wind");
-
-  cityNameElement.innerHTML = weatherData.name;
-  tempElement.innerHTML = `${Math.round(weatherData.main.temp)}°F`;
-  mainElement.innerHTML = weatherData.weather[0].main;
-  descriptionElement.innerHTML = weatherData.weather[0].description;
-  humidityElement.innerHTML = `${weatherData.main.humidity}%`;
-  windElement.innerHTML = `${weatherData.wind.speed} mph`;
-
-  return weatherData;
+function updateWeatherData(weatherData) {
+  cityName.innerHTML = weatherData.name;
+  temp.innerHTML = `${Math.round(weatherData.main.temp)}°F`;
+  main.innerHTML = weatherData.weather[0].main;
+  description.innerHTML = weatherData.weather[0].description;
+  humidity.innerHTML = `${weatherData.main.humidity}%`;
+  wind.innerHTML = `${weatherData.wind.speed} mph`;
+  image.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
 }
 
 // Update the forecast calendar
@@ -67,12 +59,12 @@ function updateForecastCalendar(forecastData) {
   });
 }
 
-// Initialize the calendar and render the initial city
+// Initialize the calendar
 document.addEventListener("DOMContentLoaded", function () {
   let calendarEl = document.getElementById("forecast-calendar");
   calendarEl.style.height = "100%";
   calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: "dayGridMonth",
+    initialView: "dayGridDay",
     headerToolbar: {
       left: "prev,next today",
       center: "title",
@@ -82,20 +74,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   calendar.render();
-
-  // Fetch the forecast data and populate the calendar events
-  fetchForecast(city.value)
-    .then((data) => {
-      data.list.forEach((forecastHour) => {
-        const event = {
-          title: `${forecastHour.weather[0].description} (${forecastHour.main.temp}°F)`,
-          start: forecastHour.dt_txt,
-          end: forecastHour.dt_txt,
-        };
-        calendar.addEvent(event);
-      });
-    })
-    .catch((error) => {
-      console.error("Error fetching forecast data:", error);
-    });
 });
