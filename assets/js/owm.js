@@ -65,10 +65,14 @@ document.addEventListener("DOMContentLoaded", function () {
   calendarEl.style.height = "100%";
   calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridDay",
+    views: {
+      dayGridDay: { buttonText: 'Day' },
+      listWeek: { buttonText: 'Week' }
+    },
     headerToolbar: {
       left: "prev,next today",
       center: "title",
-      right: "dayGridMonth,timeGridWeek,timeGridDay",
+      right: "listWeek,dayGridDay",
     },
     events: [], // Initialize an empty array to store the forecast events
   });
