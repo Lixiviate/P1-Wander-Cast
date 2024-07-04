@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
   calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridDay",
     views: {
-      dayGridDay: { buttonText: 'Day' },
-      listWeek: { buttonText: 'Week' }
+      dayGridDay: { buttonText: "Day" },
+      listWeek: { buttonText: "Week" },
     },
     headerToolbar: {
       left: "prev,next today",
