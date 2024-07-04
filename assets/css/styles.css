@@ -82,6 +82,12 @@ strong {
   transition: color 0.7s;
 }
 
+.notification-container {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
 .hero-background .title.is-1 {
   font-size: 5rem; /* Larger size for larger screens */
 }
